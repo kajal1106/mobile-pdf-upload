@@ -93,6 +93,18 @@ function App() {
 				<div className="bg-white p-6 rounded-xl shadow-md">
 					<PdfUpload onUpload={handleUpload} /> {/* Upload component */}
 					{pdfUrl && <PdfViewer fileUrl={pdfUrl} />} {/* Preview component */}
+					{/* Download button - only shown after successful upload */}
+					{pdfUrl && !serverError && (
+						<div className="mt-4 text-center">
+							<a
+								href={pdfUrl}
+								download="signed-document.pdf"
+								className="inline-block px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded hover:bg-blue-700 transition"
+							>
+								⬇️ Download Signed PDF
+							</a>
+						</div>
+					)}
 				</div>
 			</div>
 
