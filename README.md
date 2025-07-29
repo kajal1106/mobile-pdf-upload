@@ -13,13 +13,19 @@ Built with a focus on responsive UX, clean design, and smooth feedback.
 * ✅ Toast and dialog for success/error feedback
 * 📱 Mobile-first, responsive UI (Tailwind CSS)
 
+Here’s your updated **🖼️ Final UI Highlights** section with 2 rows of cards for cleaner visual balance in the README:
+
 ---
 
 ## 🖼️ Final UI Highlights
 
-| 📥 Upload UI                             | ✅ Success Toast + Dialog                      | 🔍 Signed PDF Preview                    | 🖋️ Watermarked PDF                            |
-| ---------------------------------------- | --------------------------------------------- | ---------------------------------------- | ---------------------------------------------- |
-| ![Upload UI](./public/upload-pdf-ui.png) | ![Success Toast](./public/success-upload.png) | ![Preview PDF](./public/mobile-view.png) | ![Signed Preview](./public/signed-preview.png) |
+| 📥 Upload UI                             | ✅ Success Toast + Dialog                       |
+| ---------------------------------------- | ---------------------------------------------- |
+| ![upload-ui](./public/upload-pdf-ui.png) | ![success-upload](./public/success-upload.png) |
+
+| 🔍 Signed PDF Preview                          | 🖋️ Watermarked PDF                      |
+| ---------------------------------------------- | ---------------------------------------- |
+| ![signed-preview](./public/signed-preview.png) | ![mobile-view](./public/mobile-view.png) |
 
 ---
 
