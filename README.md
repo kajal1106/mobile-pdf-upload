@@ -1,7 +1,3 @@
-Here is your **updated and corrected README.md**, including the **fixed Final UI Highlights table** with 4 images and proper headings, and overall polished formatting:
-
----
-
 # 📄 Mobile PDF Signing App
 
 A mobile-friendly web application that allows users to **upload a PDF**, send it to a mock server for simulated signing (with a visible watermark), and instantly **preview or download the signed PDF**.
