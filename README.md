@@ -13,8 +13,6 @@ Built with a focus on responsive UX, clean design, and smooth feedback.
 * ✅ Toast and dialog for success/error feedback
 * 📱 Mobile-first, responsive UI (Tailwind CSS)
 
-Here’s your updated **🖼️ Final UI Highlights** section with 2 rows of cards for cleaner visual balance in the README:
-
 ---
 
 ## 🖼️ Final UI Highlights
@@ -71,10 +69,19 @@ mobile-pdf-upload/
 
 ## 🚀 Getting Started
 
-### 1. Run the Frontend
+### 1. Clone and Install
 
 ```bash
+git clone https://github.com/kajal1106/mobile-pdf-upload.git
+cd mobile-pdf-upload
 npm install
+```
+
+---
+
+### 2. Run the Frontend
+
+```bash
 npm run dev
 ```
 
@@ -82,7 +89,7 @@ npm run dev
 
 ---
 
-### 2. Start the Mock Signing Server
+### 3. Start the Mock Signing Server
 
 ```bash
 cd server
@@ -128,10 +135,11 @@ npx ts-node mock-server.ts
 
 * This is a **mock simulation** — no actual cryptographic signatures
 * Great for demonstrating frontend-to-backend PDF workflows
+  
+To see full functionality (PDF watermarking + alerts), **run it locally** with the steps above.
 
 ---
 
 ## 👨‍💻 Author
 
-Built by **\[Kajal Singh]** for the **Delta Capita – Frontend Engineer Assessment**.
-
+Built by **Kajal Singh** for the **Delta Capita – Frontend Engineer Assessment**.
