@@ -1,17 +1,22 @@
-export async function sendToMockServer(file: File): Promise<Blob> {
-  const formData = new FormData();
-  formData.append('file', file);
+export async function sendToMockServer(file: File): Promise<Blob | null> {
+	const formData = new FormData();
+	formData.append("file", file);
 
-  const res = await fetch('http://localhost:3001/sign-pdf', {
-    method: 'POST',
-    mode: 'cors',
-    body: formData,
-  });
+	try {
+		const res = await fetch("http://localhost:3001/sign-pdf", {
+			method: "POST",
+			mode: "cors",
+			body: formData,
+		});
 
-  if (!res.ok) {
-    const err = await res.text();
-    throw new Error(`Upload failed: ${err}`);
-  }
+		if (!res.ok) {
+			const err = await res.text();
+			throw new Error(`Upload failed: ${err}`);
+		}
 
-  return await res.blob();
+		return await res.blob();
+	} catch (error) {
+		console.error("Mock server error:", error);
+		return null; // We'll handle this in the component
+	}
 }

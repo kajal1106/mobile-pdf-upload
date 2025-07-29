@@ -4,7 +4,7 @@ import PdfViewer from "./components/PdfViewer"; // Component for viewing signed 
 import Toast from "./components/Toast"; // Toast notification component
 import Dialog from "./components/Dialog"; // Dialog popup component
 import { sendToMockServer } from "./services/api"; // API service for sending PDF to mock server
-import { FiUpload } from "react-icons/fi";
+import { FiUpload } from "react-icons/fi"; // Icon for header logo
 
 function App() {
 	// State to store the URL of the signed PDF
@@ -18,11 +18,26 @@ function App() {
 	// Dialog state
 	const [showDialog, setShowDialog] = useState(false);
 
+	// Server error state (mock server unreachable)
+	const [serverError, setServerError] = useState(false);
+
 	// Handles the file upload event
 	const handleUpload = async (file: File) => {
 		try {
 			// Send file to mock server and receive signed PDF blob
 			const blob = await sendToMockServer(file);
+
+			// If mock server is unreachable or returns null
+			if (!blob) {
+				setServerError(true);
+				setToastMessage("⚠️ Mock signing server is unavailable.");
+				setToastType("error");
+				setShowToast(true);
+				return;
+			}
+
+			// Reset error if previously set
+			setServerError(false);
 
 			// Create a URL to preview the signed PDF
 			setPdfUrl(URL.createObjectURL(blob));
@@ -64,12 +79,21 @@ function App() {
 			</header>
 
 			{/* Add vertical space below subtitle */}
-			<div className="mt-6">{/* Your upload box container */}</div>
+			<div className="mt-6 w-full max-w-md">
+				{/* Show warning if server unavailable */}
+				{serverError && (
+					<div className="mb-4 p-3 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 rounded">
+						⚠️ <strong>Mock signing server is unavailable.</strong>
+						<br />
+						Run locally to generate signed PDFs with watermark.
+					</div>
+				)}
 
-			{/* Upload & PDF preview container */}
-			<div className="bg-white p-6 rounded-xl shadow-md w-full max-w-md">
-				<PdfUpload onUpload={handleUpload} /> {/* Upload component */}
-				{pdfUrl && <PdfViewer fileUrl={pdfUrl} />} {/* Preview component */}
+				{/* Upload & PDF preview container */}
+				<div className="bg-white p-6 rounded-xl shadow-md">
+					<PdfUpload onUpload={handleUpload} /> {/* Upload component */}
+					{pdfUrl && <PdfViewer fileUrl={pdfUrl} />} {/* Preview component */}
+				</div>
 			</div>
 
 			{/* Toast notification */}
